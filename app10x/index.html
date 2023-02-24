@@ -1,0 +1,412 @@
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App 10X</title>
+        <link rel="preload" href="https://scripts.converteai.net/427a2ce7-0558-4ecd-8876-c0fd21d0cea1/players/63d6021d6254740009be5925/player.js" as="script">
+        <link rel="preload" href="https://cdn.converteai.net/lib/js/smartplayer/v1/smartplayer.min.js" as="script">
+        <link rel="preload" href="https://images.converteai.net/427a2ce7-0558-4ecd-8876-c0fd21d0cea1/players/63d6021d6254740009be5925/thumbnail.jpg" as="image">
+        <link rel="preload" href="https://cdn.converteai.net/427a2ce7-0558-4ecd-8876-c0fd21d0cea1/63d2f211b02728000b7d5ae3/playlist.m3u8" as="fetch">
+        <link rel="dns-prefetch" href="https://cdn.converteai.net">
+        <link rel="dns-prefetch" href="https://scripts.converteai.net">
+        <link rel="dns-prefetch" href="https://images.converteai.net">
+        <link rel="dns-prefetch" href="https://api.vturb.com.br">
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700&display=swap');
+        body {
+            padding: 0;
+            margin: 0;
+            background: black;
+            font-family: 'Poppins';
+        }
+        @media screen and (min-width: 1024px) {
+            .content--wrapper-1 {
+                padding: 20px 30% !important;
+            }
+            .content--wrapper-1 .logo {
+                width: 150px !important;
+            }
+            .choose-plan {
+                justify-content: center;
+            }
+            .choose-plan img {
+                margin-right: 10px;
+            }
+            .content--wrapper-2 .price {
+                width: 320px !important;
+            }
+            .content--wrapper-4 .prototipo {
+                width: 320px !important;
+                margin-top: 30px !important;
+            }
+            .content--wrapper-4 .tecnologia-10-x {
+                width: 300px !important;
+            }
+        }
+        .content--wrapper-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('https://dominandoomercado.fun/assets/background-screen-1.webp');
+            background-position: center right;
+            background-size: cover;
+            padding: 20px 20px 40px 20px;
+        }
+        .content--wrapper-1 .logo {
+            width: 150px;
+            margin: 10px 0 30px 0;
+        }
+        .content--wrapper-1 .vsl {
+            width: 100%;
+        }
+        .content--wrapper-1 .headline {
+            width: 100%;
+        }
+        .choose-plan {
+            display: flex;
+            background: #00FF31;
+            padding: 15px 50px;
+        }
+        .choose-plan .title {
+            color: black;
+            font-size: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            margin: 0;
+        }
+        .choose-plan .title img {
+            width: 30px;
+            height: 30px;
+        }
+        .content--wrapper-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('https://dominandoomercado.fun/assets/background-screen-1.webp');
+            background-position: center right;
+            background-size: cover;
+            padding: 20px 30px 40px 30px;
+        }
+        .content--wrapper-2 .plan-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .content--wrapper-2 .plan-container img {
+            width: 30px;
+            height: 40px;
+        }
+        .content--wrapper-2 .plan-container .title {
+            font-weight: bold;
+            margin-left: 10px;
+            font-size: 32px;
+            margin: 0 0 0 10px;
+            color: #00FF31;
+        }
+        .content--wrapper-2 .subtitle {
+            font-size: 27px;
+            color: white;
+            margin: 5px 0 0 0;
+            font-weight: 500;
+        }
+        .content--wrapper-2 .description {
+            font-size: 16px;
+            color: white;
+            margin: 10px 0 0 0;
+            font-weight: 500;
+            text-align: center;
+        }
+        .content--wrapper-2 .arrow-down {
+            width: 30px;
+            height: 40px;
+            margin: 10px 0;
+        }
+        .content--wrapper-2 .vagas-disponiveis {
+            font-size: 24px;
+            color: #00FF31;
+            margin: 0;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .content--wrapper-2 .price {
+            width: 100%;
+            margin: 12px 0 6px 0;
+        }
+        .content--wrapper-2 .plan-container .plan-diamond {
+            width: 30px;
+            height: 25px;
+        }
+        .checkout {
+            font-weight:700;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            text-transform:uppercase;
+            background: linear-gradient(#39BF00,#39BF00);
+            border-radius:10px;
+            color:white;
+            text-decoration:none;
+            text-align:center;
+            box-sizing:border-box;
+            box-shadow:0 0 20px 0 green;
+            text-shadow:43px 32px 28px green;
+            -webkit-animation:pulsing 1s infinite cubic-bezier(.77,0,0,1);
+            -moz-animation:pulsing 1s infinite cubic-bezier(.77,0,0,1);
+            -ms-animation:pulsing 1s infinite cubic-bezier(0.77,0,0,1);
+            animation:pulsing 1s infinite cubic-bezier(.77,0,0,1);
+            animation: zoom-in-zoom-out 0.8s ease-out infinite;
+            transition: 300ms all ease-in-out;
+            padding: 20px 20px;
+            margin-top: 20px;
+        }
+        .checkout img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        .checkout .title {
+            margin: 0;
+            text-transform: uppercase;
+            font-size: 17px;
+        }
+        .content--wrapper-2 .next-plan {
+            font-size: 20px;
+            color: #39BF00;
+            margin: 15px 0 60px 0;
+        }
+        .content--wrapper-2 .plan-recomended {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 14px 0 0 0;
+        }
+        .content--wrapper-2 .plan-recomended img {
+            width: 20px;
+            height: 20px;
+        }
+        .content--wrapper-2 .plan-recomended .title {
+            text-transform: uppercase;
+            color: #00FF30;
+            margin: 0 0 0 10px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .content--wrapper-3 {
+            padding: 20px 40px;
+            background: url('https://dominandoomercado.fun/assets/fundo-tela-5.webp');
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-position: center right;
+            background-size: cover;
+        }
+        .content--wrapper-3 .card {
+            border-radius: 15px;
+            border: 2px solid #00FF30;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 200px;
+            height: 150px;
+            padding: 10px;
+            margin: 10px 0;
+            justify-content: center;
+            background-image: url('https://dominandoomercado.fun/assets/background-screen-1.webp');
+            background-position: center right;
+            background-size: cover;
+        }
+        .content--wrapper-3 .card img {
+            width: 30px;
+            height: 30px;
+        }
+        .content--wrapper-3 .card .title {
+            color: white;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: bold;
+        }
+        .content--wrapper-4 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 0 50px;   
+        }
+        .content--wrapper-4 .prototipo {
+            width: 100%;
+            margin: 0 auto;
+        }
+        .content--wrapper-4 .tecnologia-10-x {
+            width: 100%;
+        }
+        .content--wrapper-5 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+        .content--wrapper-5 .content--wrapper-green {
+            width: 100%;
+            height: 150px;
+            background: #00FF30;
+            margin: 40px 0 0 0;
+        }
+        .content--wrapper-5 .garantia-7-dias {
+            width: 250px;
+            margin-top: -130px;
+            margin-bottom: 20px;
+        }
+        .content--wrapper-5 .description {
+            margin: 10px 0;
+            color: white;
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 21px;
+            padding: 0 20px;
+        }
+        .smartplay {
+            border: 4px solid #00FF30 !important;
+            box-sizing:border-box !important;
+            box-shadow:0 0 20px 0 #00FF30 !important;
+            border-radius: 8px !important;
+        }
+        .footer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            max-width: 600px;
+            color: grey;
+            margin: 0 auto 0 auto;
+        }
+        .footer .description {
+            font-size: 10px;
+        }
+        .footer a {
+            font-size: 10px;
+            color: grey;
+            text-decoration: none;
+        }
+        .footer--terms {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            justify-content: center;
+        }
+        .footer--terms a {
+            text-decoration: none;
+            color: grey;
+            margin-right: 10px;
+        }
+        @media screen and (max-width: 1024px) {
+            .footer--terms a {
+                font-size: 10px;
+            }
+            .footer {
+                margin: 100px 12px 0 12px;
+            }
+        }
+        @keyframes zoom-in-zoom-out {
+            0% {
+                transform: scale(1, 1);
+            }
+            50% {
+                transform: scale(1.05, 1.05);
+            }
+            100% {
+                transform: scale(1, 1);
+            }
+        }
+        @-webkit-keyframes pulsing{to{box-shadow:0 0 0 30px rgba(232,76,61,0)}};
+        @-moz-keyframes pulsing{to{box-shadow:0 0 0 30px rgba(232,76,61,0)}};
+        @-ms-keyframes pulsing{to{box-shadow:0 0 0 30px rgba(232,76,61,0)}};
+        @keyframes pulsing{to{box-shadow:0 0 0 30px rgba(232,76,61,0)}};
+    </style>
+    <body oncontextmenu="return false;">
+        <div class="content--wrapper-1">
+            <img src="https://dominandoomercado.fun/assets/logo-app-10x.webp" alt="Logo App 10x" class="logo">
+            <img src="https://dominandoomercado.fun/assets/headline-app-10x.webp" alt="Headline" class="headline">
+            <div class="vsl">
+                <div id="vid_63f2f0c742e9f70009e6f21c" style="position:relative;width:100%;padding: 56.25% 0 0;"><img id="thumb_63f2f0c742e9f70009e6f21c" src="https://images.converteai.net/427a2ce7-0558-4ecd-8876-c0fd21d0cea1/players/63f2f0c742e9f70009e6f21c/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"><div id="backdrop_63f2f0c742e9f70009e6f21c" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div></div><script type="text/javascript" id="scr_63f2f0c742e9f70009e6f21c">var s=document.createElement("script");s.src="https://scripts.converteai.net/427a2ce7-0558-4ecd-8876-c0fd21d0cea1/players/63f2f0c742e9f70009e6f21c/player.js",s.async=!0,document.head.appendChild(s);</script>
+            </div>
+            <a class="checkout atrasado">
+                <p class="title">Eu quero ter o acesso ao App10x</p>
+            </a>
+        </div>
+        <div class="choose-plan atrasado">
+            <p class="title"><img src="https://dominandoomercado.fun/assets/ICONE-VERIFICAÇÃO.webp" alt="Ícone Verificação"> Veja o que você irá receber:</p>
+        </div>
+        <div class="content--wrapper-3 atrasado">
+            <div class="card">
+                <img src="https://dominandoomercado.fun/assets/ICONE-1-RETANGULO.webp" alt="Número">
+                <p class="title"><font color="#00FF30">Acesso</font> ao aplicativo <font color="#00FF30">de imediato</font></p>
+            </div>
+            <div class="card">
+                <img src="https://dominandoomercado.fun/assets/ICONE-2-RETANGULO.webp" alt="Número">
+                <p class="title"><font color="#00FF30">Suporte</font> 24 horas</p>
+            </div>
+            <div class="card">
+                <img src="https://dominandoomercado.fun/assets/ICONE-3-RETANGULO.webp" alt="Número">
+                <p class="title"><font color="#00FF30">Aulas de</font> como utilizar o <font color="#00FF30">app10x</font></p>
+            </div>
+            <a class="checkout atrasado">
+                <p class="title">Eu quero ter o acesso ao App10x</p>
+            </a>
+        </div>
+        <div class="content--wrapper-4 atrasado">
+            <img src="https://dominandoomercado.fun/assets/CELULARES-APP10X.webp" alt="Protótipo" class="prototipo">
+            <img src="https://dominandoomercado.fun/assets/TECNOLOGIA-APP0X.webp" alt="Tecnologia 10X" class="tecnologia-10-x">
+            <a class="checkout atrasado">
+                <p class="title">Eu quero ter o acesso ao App10x</p>
+            </a>
+        </div>
+        <div class="content--wrapper-5 atrasado">
+            <div class="content--wrapper-green"></div>
+            <img src="https://dominandoomercado.fun/assets/CELO-DE-GARANTIA-APP10X.webp" alt="Garantia 7 Dias" class="garantia-7-dias">
+            <p class="description">Eu sei que você já está cansado de ver falsas promessas na internet e está com medo do <font color="#00FF30">APP10X</font> ser apenas mais uma dessas promessas...</p>
+            <p class="description">Mas nós confiamos tanto no nosso trabalho, que estamos te dando uma <font color="#00FF30">garantia incondicional de 7 dias.</font></p>
+            <p class="description">Ou você tem resultados com o <font color="#00FF30">APP10X</font> ou nossa equipe devolverá todo o dinheiro investido sem burocracias!</p>
+        </div>
+        <div class="footer">
+            <p class="description">
+                Este Site Não É Afiliado Ao Facebook Ou A Qualquer Entidade Do Facebook. Depois Que Você Sair Do Facebook, A Responsabilidade Não É Deles E Sim Do Nosso Site. Fazemos Todos Os Esforços Para Indicar Claramente E Mostrar Todas As Provas Do Produto E Usamos Resultados Reais. Nós Não Vendemos O Seu E-Mail Ou Qualquer Informação Para Terceiros. Jamais Fazemos Nenhum Tipo De Spam.
+            </p>
+            <p class="description">
+                © Todos os direitos reservados
+            </p>
+            <a href="/terms/index.html">Termos de uso</a>
+            <a href="/privacy/index.html">Política de Privacidade</a>
+            <p class="description">
+                Fale Conosco Através Dos Nosso Canais De Atendimento Das 05h Às 00h. Telefone: (28) 99977-3025
+            </p>
+        </div>
+    </body>
+    <script>
+        var divs=Array.from(document.getElementsByClassName("atrasado"));divs.forEach(e=>{e.style.display="none"}),setTimeout(function(){divs.forEach(e=>{ e.style.display="flex"}); document.getElementById('container').style.height = 'auto'},484000);
+    </script>
+    <script>
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const utm_source = urlParams.get('utm_source') ? urlParams.get('utm_source') : '';
+        const utm_campaign = urlParams.get('utm_campaign') ? urlParams.get('utm_campaign') : '';
+        const utm_medium = urlParams.get('utm_medium') ? urlParams.get('utm_medium') : '';
+        const utm_content = urlParams.get('utm_content') ? urlParams.get('utm_content') : '';
+        const utm_term = urlParams.get('utm_term') ? urlParams.get('utm_term') : '';
+        const link_checkout = `https://checkout.payt.com.br/ba347fcc9a79fb74e95670b24848164f?split=12&src=facebook&utm_source=facebookads&utm_campaign=${utm_campaign}&utm_medium=${utm_medium}&utm_content=${utm_content}&utm_term=${utm_term}`;
+        var div_href = Array.from(document.getElementsByClassName("checkout"));
+        div_href.forEach((div => { div.href = link_checkout }));
+    </script>
+    <script>
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function (e) {
+            if(e.keyCode == 123) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 73) return false;
+            if(e.ctrlKey && e.shiftKey && e.keyCode == 74) return false;
+            if(e.ctrlKey && e.keyCode == 85) return false;
+        }
+    </script>
+</html>
